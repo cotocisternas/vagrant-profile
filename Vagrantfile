@@ -23,6 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     kvm.driver = 'kvm'
     kvm.memory = 1024
     kvm.cpus   = 2
+    #kvm.storage_pool_name = 'default'
+    kvm.storage_pool_name = 'storage'
   end
 
   config.vm.define "puppet" do |master|
