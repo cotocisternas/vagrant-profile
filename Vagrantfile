@@ -52,15 +52,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   nodes = {
     :dns01  => {:host => 'tx-dns01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.2'                },
     :mon01  => {:host => 'tx-mon01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.5',  :mem => 6144 },
-    :up01   => {:host => 'tx-status01-zz1',         :domain => 'txel.systems', :ip => '172.16.210.15'               },
+    # :up01   => {:host => 'tx-status01-zz1',         :domain => 'txel.systems', :ip => '172.16.210.15'               },
     :ha01   => {:host => 'tx-ha01-zz1',             :domain => 'txel.systems', :ip => '172.16.210.21', :mem => 512  },
     :web01  => {:host => 'tx-web01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.31', :mem => 512  },
     :web02  => {:host => 'tx-web02-zz1',            :domain => 'txel.systems', :ip => '172.16.210.32', :mem => 512  },
     :web03  => {:host => 'tx-web03-zz1',            :domain => 'txel.systems', :ip => '172.16.210.33', :mem => 512  },
-    :sql01  => {:host => 'tx-percona01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.41'               },
-    :sql02  => {:host => 'tx-percona02-zz1',        :domain => 'txel.systems', :ip => '172.16.210.42'               },
-    :sql03  => {:host => 'tx-percona03-zz1',        :domain => 'txel.systems', :ip => '172.16.210.43'               },
-    :mt01   => {:host => 'tx-motor01-zz1',          :domain => 'txel.systems', :ip => '172.16.210.51'               },
+    # :sql01  => {:host => 'tx-percona01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.41'               },
+    # :sql02  => {:host => 'tx-percona02-zz1',        :domain => 'txel.systems', :ip => '172.16.210.42'               },
+    # :sql03  => {:host => 'tx-percona03-zz1',        :domain => 'txel.systems', :ip => '172.16.210.43'               },
+    # :mt01   => {:host => 'tx-motor01-zz1',          :domain => 'txel.systems', :ip => '172.16.210.51'               },
   }
 
   nodes.each do |name, options|
