@@ -54,9 +54,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   nodes = {
     :dns01  => {:host => 'tx-dns01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.2'                },
     :mon01  => {:host => 'tx-mon01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.5',  :mem => 6144 },
-    :ops01  => {:host => 'tx-ops01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.6'                },
-    :ci01   => {:host => 'tx-ci01-zz1',             :domain => 'txel.systems', :ip => '172.16.210.7'                },
-    :git01  => {:host => 'tx-git01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.8'                },
+    # :ops01  => {:host => 'tx-ops01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.6'                },
+    # :ci01   => {:host => 'tx-ci01-zz1',             :domain => 'txel.systems', :ip => '172.16.210.7'                },
+    # :git01  => {:host => 'tx-git01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.8'                },
     :up01   => {:host => 'tx-status01-zz1',         :domain => 'txel.systems', :ip => '172.16.210.15'               },
     :ha01   => {:host => 'im-bono3-ha01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.21', :mem => 512  },
     :web01  => {:host => 'im-bono3-web01-zz1',      :domain => 'txel.systems', :ip => '172.16.210.31', :mem => 512  },
