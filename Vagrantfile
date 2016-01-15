@@ -62,6 +62,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     :web01  => {:host => 'im-bono3-web01-zz1',      :domain => 'txel.systems', :ip => '172.16.210.31', :mem => 512  },
     :web02  => {:host => 'im-bono3-web02-zz1',      :domain => 'txel.systems', :ip => '172.16.210.32', :mem => 512  },
     :web03  => {:host => 'im-bono3-web03-zz1',      :domain => 'txel.systems', :ip => '172.16.210.33', :mem => 512  },
+    :md01   => {:host => 'im-bono3-md01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.35'               },
     :sql01  => {:host => 'im-bono3-percona01-zz1',  :domain => 'txel.systems', :ip => '172.16.210.41'               },
     :sql02  => {:host => 'im-bono3-percona02-zz1',  :domain => 'txel.systems', :ip => '172.16.210.42'               },
     :sql03  => {:host => 'im-bono3-percona03-zz1',  :domain => 'txel.systems', :ip => '172.16.210.43'               },
