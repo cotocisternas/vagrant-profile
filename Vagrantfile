@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.provision :puppet do |puppet|
       puppet.manifests_path = "master_conf/manifests"
       puppet.manifest_file  = "default.pp"
-      puppet.options        = "--verbose --debug --modulepath /home/vagrant/modules"
+      puppet.options        = "--verbose --modulepath /home/vagrant/modules"
     end
     master.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests", type: '9p'
     master.vm.synced_folder "puppet/modules", "/etc/puppet/modules", type: '9p'
@@ -88,7 +88,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node.vm.provision :shell, :inline => "echo -e '\n[agent]\npluginsync = true\n' >> /etc/puppet/puppet.conf"
       node.vm.provision "puppet_server" do |puppet|
         puppet.puppet_server = "tx-puppet01-zz1.txel.systems"
-        puppet.options = "--verbose --debug"
+        puppet.options = "--verbose"
       end
       node.vm.hostname = "#{options[:host]}.#{options[:domain]}"
       node.vm.network :private_network, ip: options[:ip]
