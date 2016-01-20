@@ -66,12 +66,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     :sql01  => {:host => 'im-bono3-percona01-zz1',  :domain => 'txel.systems', :ip => '172.16.210.41'               },
     :sql02  => {:host => 'im-bono3-percona02-zz1',  :domain => 'txel.systems', :ip => '172.16.210.42'               },
     :sql03  => {:host => 'im-bono3-percona03-zz1',  :domain => 'txel.systems', :ip => '172.16.210.43'               },
-    :app01  => {:host => 'tx-app01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.51'               },
-    :app02  => {:host => 'tx-app02-zz1',            :domain => 'txel.systems', :ip => '172.16.210.52'               },
-    :app03  => {:host => 'tx-app03-zz1',            :domain => 'txel.systems', :ip => '172.16.210.53'               },
-    :es01   => {:host => 'tx-elastic01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.61'               },
-    :es02   => {:host => 'tx-elastic02-zz1',        :domain => 'txel.systems', :ip => '172.16.210.62'               },
-    :es03   => {:host => 'tx-elastic03-zz1',        :domain => 'txel.systems', :ip => '172.16.210.63'               },
+    # :app01  => {:host => 'tx-app01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.51'               },
+    # :app02  => {:host => 'tx-app02-zz1',            :domain => 'txel.systems', :ip => '172.16.210.52'               },
+    # :app03  => {:host => 'tx-app03-zz1',            :domain => 'txel.systems', :ip => '172.16.210.53'               },
+    # :es01   => {:host => 'tx-elastic01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.61'               },
+    # :es02   => {:host => 'tx-elastic02-zz1',        :domain => 'txel.systems', :ip => '172.16.210.62'               },
+    # :es03   => {:host => 'tx-elastic03-zz1',        :domain => 'txel.systems', :ip => '172.16.210.63'               },
     :mt01   => {:host => 'im-bono3-motor01-zz1',    :domain => 'txel.systems', :ip => '172.16.210.100'              },
   }
 
