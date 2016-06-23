@@ -4,8 +4,10 @@
 ## == required plugins and params == ##
 # vagrant plugin install vagrant-hosts
 # vagrant plugin install vagrant-cachier
+# gem install fog-core --version 1.29.0
+# gem install fog --version 1.29.0
+# gem install veewee fog-libvirt
 # gem install ruby-libvirt
-# gem install fog
 # vagrant plugin install vagrant-libvirt
 # export VAGRANT_DEFAULT_PROVIDER="libvirt"
 ##
@@ -19,12 +21,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.cache.auto_detect = true
   end
 
+  config.nfs.functional = false
+
   config.vm.provider :libvirt do |kvm|
     kvm.driver = 'kvm'
     kvm.memory = 1024
     kvm.cpus   = 2
-    #kvm.storage_pool_name = 'default'
-    #kvm.storage_pool_name = 'storage'
   end
 
   config.vm.define "puppet" do |master|
@@ -53,26 +55,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   nodes = {
-    :dns01  => {:host => 'tx-dns01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.2'                },
-    :mon01  => {:host => 'tx-mon01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.5',  :mem => 6144 },
-    :git01  => {:host => 'tx-git01-zz1',            :domain => 'txel.systems', :ip => '172.16.210.6',  :mem => 4096 },
-    :up01   => {:host => 'tx-status01-zz1',         :domain => 'txel.systems', :ip => '172.16.210.15'               },
-    :web01  => {:host => 'au-dec5-web01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.31'               },
-    :web02  => {:host => 'au-dec5-web02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.32'               },
-    :web03  => {:host => 'au-dec5-web03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.33'               },
-    :sql01  => {:host => 'au-dec5-percona01-zz1',   :domain => 'txel.systems', :ip => '172.16.210.41'               },
-    :sql02  => {:host => 'au-dec5-percona02-zz1',   :domain => 'txel.systems', :ip => '172.16.210.42'               },
-    :sql03  => {:host => 'au-dec5-percona03-zz1',   :domain => 'txel.systems', :ip => '172.16.210.43'               },
-    :app01  => {:host => 'au-dec5-app01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.51'               },
-    :app02  => {:host => 'au-dec5-app02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.52'               },
-    :app03  => {:host => 'au-dec5-app03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.53'               },
-    :es01   => {:host => 'au-dec5-elastic01-zz1',   :domain => 'txel.systems', :ip => '172.16.210.61'               },
-    :es02   => {:host => 'au-dec5-elastic02-zz1',   :domain => 'txel.systems', :ip => '172.16.210.62'               },
-    :es03   => {:host => 'au-dec5-elastic03-zz1',   :domain => 'txel.systems', :ip => '172.16.210.63'               },
-    :web11  => {:host => 'au-dec4-web01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.71'               },
-    :web12  => {:host => 'au-dec4-web02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.72'               },
-    :web13  => {:host => 'au-dec4-web03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.73'               },
-    :doc01  => {:host => 'au-dec-doc01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.73'               },
+    :dns01  => {:host => 'tx-dns01-zz1',              :domain => 'txel.systems', :ip => '172.16.210.2'                },
+    :mon01  => {:host => 'tx-mon01-zz1',              :domain => 'txel.systems', :ip => '172.16.210.5',  :mem => 4096 },
+    :mon03  => {:host => 'tx-mon03-zz1',              :domain => 'txel.systems', :ip => '172.16.210.6',  :mem => 4096 },
+    :mon02  => {:host => 'tx-mon02-zz1',              :domain => 'txel.systems', :ip => '172.16.210.7',  :mem => 4096 },
+    :up01   => {:host => 'tx-status01-zz1',           :domain => 'txel.systems', :ip => '172.16.210.15'               },
+    # :web01  => {:host => 'au-dec5qa-web01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.31'               },
+    # :web02  => {:host => 'au-dec5-web02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.32'               },
+    # :web03  => {:host => 'au-dec5-web03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.33'               },
+    # :sql01  => {:host => 'au-dec5qa-percona01-zz1',   :domain => 'txel.systems', :ip => '172.16.210.41'               },
+    # :sql02  => {:host => 'au-dec5-percona02-zz1',   :domain => 'txel.systems', :ip => '172.16.210.42'               },
+    # :sql03  => {:host => 'au-dec5-percona03-zz1',   :domain => 'txel.systems', :ip => '172.16.210.43'               },
+    # :app01  => {:host => 'au-dec5qa-app01-zz1',       :domain => 'txel.systems', :ip => '172.16.210.51'               },
+    # :app02  => {:host => 'au-dec5-app02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.52'               },
+    # :app03  => {:host => 'au-dec5-app03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.53'               },
+    # :es01   => {:host => 'au-dec5qa-elastic01-zz1',   :domain => 'txel.systems', :ip => '172.16.210.61'               },
+    # :es02   => {:host => 'au-dec5-elastic02-zz1',   :domain => 'txel.systems', :ip => '172.16.210.62'               },
+    # :es03   => {:host => 'au-dec5-elastic03-zz1',   :domain => 'txel.systems', :ip => '172.16.210.63'               },
+    # :web11  => {:host => 'au-dec4qa-web01-zz1',     :domain => 'txel.systems', :ip => '172.16.210.71'               },
+    # :web12  => {:host => 'au-dec4-web02-zz1',       :domain => 'txel.systems', :ip => '172.16.210.72'               },
+    # :web13  => {:host => 'au-dec4-web03-zz1',       :domain => 'txel.systems', :ip => '172.16.210.73'               },
+    # :doc01  => {:host => 'au-decqa-doc01-zz1',        :domain => 'txel.systems', :ip => '172.16.210.73'               },
   }
 
   nodes.each do |name, options|
